@@ -1,0 +1,16 @@
+<html>
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+
+<body>
+  <script>
+    let url = new URL(window.location.href);
+    let params = url.searchParams;
+    window.location.href = `${params.get("scheme")}://${params.get("address")}/${params.get("filename")}`;
+  </script>
+</body>
+
+</html>
