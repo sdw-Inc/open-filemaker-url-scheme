@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" href="https://systemdesignworks.co.jp/assets/imgs/ipad/filemaker-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
   <title>FileMakerリンク</title>
   <body>
     <script>
@@ -64,7 +65,7 @@
       document.querySelector('title').textContent = params.get("title");
 
       if(isiPhone() || isiPad()) {
-        navigator.standalone?location=`${fmURL}`:alert("ホーム画面に追加してください");      
+        navigator.standalone?location=`${fmURL}`:"";      
       } else {
         window.location.href = `${fmURL}`;      
       }
