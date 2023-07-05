@@ -38,7 +38,7 @@
 
 
     document.querySelector('title').textContent = params.get("title");
-    window.location.href = `${params.get("scheme")}://${params.get("address")}/${params.get("filename")}`;
+    navigator.standalone?location=`${params.get("scheme")}://${params.get("address")}/${params.get("filename")}`;
   </script>
 </body>
 
