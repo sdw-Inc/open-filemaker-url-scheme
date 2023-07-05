@@ -8,9 +8,35 @@
   <title>FileMakerリンク</title>
 <body>
   <script>
+    // apple-touch-iconの設定
+    function setAppleTouchIcon(fileName) {
+      var link = document.querySelector("link[rel='apple-touch-icon']");
+      var baseUrl = "https://systemdesignworks.co.jp/assets/imgs/ipad/";
+
+      //パラメータ空なら削除
+      if(!fileName) {
+        reutrn;
+      }
+      
+      // もし既に存在する場合は削除
+      if (link) {
+        link.parentNode.removeChild(link);
+      }
+    
+      // 新しいlink要素を作成して属性を設定
+      var newLink = document.createElement("link");
+      newLink.rel = "apple-touch-icon";
+      newLink.href = baseUrl + fileName;
+    
+      // ヘッド要素に追加
+      document.head.appendChild(newLink);
+    }
     
     let url = new URL(window.location.href);
     let params = url.searchParams;
+    setAppleTouchIcon(params.get("iconFileName"));
+
+
     document.querySelector('title').textContent = params.get("title");
     window.location.href = `${params.get("scheme")}://${params.get("address")}/${params.get("filename")}`;
   </script>
