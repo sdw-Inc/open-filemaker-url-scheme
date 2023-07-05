@@ -1,46 +1,70 @@
 <html>
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" href="https://systemdesignworks.co.jp/assets/imgs/ipad/filemaker-icon.png">
   <title>FileMakerリンク</title>
-<body>
-  <script>
-    // apple-touch-iconの設定
-    function setAppleTouchIcon(fileName) {
-      var link = document.querySelector("link[rel='apple-touch-icon']");
-      var baseUrl = "https://systemdesignworks.co.jp/assets/imgs/ipad/";
-
-      //パラメータ空なら削除
-      if(!fileName) {
-        return null;
+  <body>
+    <script>
+      function isiPad() {
+        // User-Agentを取得
+        var userAgent = navigator.userAgent.toLowerCase();
+    
+        // iPadのUser-Agentには"ipad"という文字列が含まれる
+        if (userAgent.indexOf("ipad") !== -1) {
+          return true;
+        }
+    
+        return false;
+      }
+      function isiPhone() {
+        // User-Agentを取得
+        var userAgent = navigator.userAgent.toLowerCase();
+        
+        // iPhoneのUser-Agentには"iphone"という文字列が含まれる
+        if (userAgent.indexOf("iphone") !== -1) {
+          return true;
+        }
+        
+        return false;
+      }
+      // apple-touch-iconの設定
+      function setAppleTouchIcon(fileName) {
+        var link = document.querySelector("link[rel='apple-touch-icon']");
+        var baseUrl = "https://systemdesignworks.co.jp/assets/imgs/ipad/";
+  
+        //パラメータ空なら削除
+        if(!fileName) {
+          return null;
+        }
+        
+        // もし既に存在する場合は削除
+        if (link) {
+          link.parentNode.removeChild(link);
+        }
+      
+        // 新しいlink要素を作成して属性を設定
+        var newLink = document.createElement("link");
+        newLink.rel = "apple-touch-icon";
+        newLink.href = baseUrl + fileName;
+      
+        // ヘッド要素に追加
+        document.head.appendChild(newLink);
       }
       
-      // もし既に存在する場合は削除
-      if (link) {
-        link.parentNode.removeChild(link);
+      let url = new URL(window.location.href);
+      let params = url.searchParams;
+      setAppleTouchIcon(params.get("iconFileName"));
+      const fmURL = `${params.get("scheme")}://${params.get("address")}/${params.get("filename")}`;
+  
+      document.querySelector('title').textContent = params.get("title");
+
+      if(isiPhone() || isiPad()) {
+        navigator.standalone?location=`${fmURL}`:alert("ホーム画面に追加してください");      
+      } else {
+        window.location.href = `${fmURL}`;      
       }
-    
-      // 新しいlink要素を作成して属性を設定
-      var newLink = document.createElement("link");
-      newLink.rel = "apple-touch-icon";
-      newLink.href = baseUrl + fileName;
-    
-      // ヘッド要素に追加
-      document.head.appendChild(newLink);
-    }
-    
-    let url = new URL(window.location.href);
-    let params = url.searchParams;
-    setAppleTouchIcon(params.get("iconFileName"));
-
-
-    document.querySelector('title').textContent = params.get("title");
-    navigator.standalone?location=`${params.get("scheme")}://${params.get("address")}/${params.get("filename")}`:alert("ホーム画面に追加してください");
-    window.location.href = `${params.get("scheme")}://${params.get("address")}/${params.get("filename")}`;
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>
