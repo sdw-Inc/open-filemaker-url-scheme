@@ -12,7 +12,10 @@
         var userAgent = navigator.userAgent.toLowerCase();
     
         // iPadのUser-Agentには"ipad"という文字列が含まれる
-        if (userAgent.indexOf("ipad") !== -1) {
+        if (
+          ua.indexOf("ipad") > -1 ||
+          (ua.indexOf("macintosh") > -1 && "ontouchend" in document)
+        ) {
           return true;
         }
     
