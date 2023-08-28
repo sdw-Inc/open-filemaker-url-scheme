@@ -64,11 +64,25 @@
   
       document.querySelector('title').textContent = params.get("title");
 
-      if(isiPhone() || isiPad()) {
+      if(params.get("renderFlg") == 1){
+        var btn = document.createElement('a');
+        
+        // ボタンのテキストを設定
+        btn.innerText = `${params.get("filename")} を開く`;
+    
+        // ボタンの属性を設定
+        btn.href = fmURL;
+        btn.target = '_blank'; // 新しいウィンドウやタブで開く場合は必要
+        btn.className = 'AppButton'; // オプション: CSSクラス名を追加
+
+        // ボタンをページに追加
+        document.getElementById('buttonContainer').appendChild(btn);
+      } else if(isiPhone() || isiPad()) {
         navigator.standalone?location=`${fmURL}`:"";      
       } else {
         window.location.href = `${fmURL}`;      
       }
     </script>
+    <div id="buttonContainer"></div>
   </body>
 </html>
