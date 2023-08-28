@@ -6,6 +6,20 @@
   <link rel="apple-touch-icon" href="https://systemdesignworks.co.jp/assets/imgs/ipad/filemaker-icon.png">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <title>FileMakerリンク</title>
+  <style>
+    display: block;
+    background: lightgray;
+    width: 50%;
+    max-width: 400px;
+    margin: 10px auto;
+    line-height: 100px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 50px;
+    color: #fff;    
+  </style>
   <body>
     <div id="buttonContainer"></div>
     <script>
@@ -69,7 +83,7 @@
         var btn = document.createElement('a');
         
         // ボタンのテキストを設定
-        btn.innerText = `${params.get("filename")} を開く`;
+        btn.innerText = `${params.get("filename").replace(".fmp12", "")} を開く`;
     
         // ボタンの属性を設定
         btn.href = fmURL;
