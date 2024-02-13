@@ -103,8 +103,10 @@
       document.addEventListener("visibilitychange", function() {
         if (document.visibilityState === "visible") {
         console.log("ページがアクティブになりました");
+        window.alert("ページがアクティブになりました");
         } else {
           console.log("ページが非アクティブになりました");
+          window.alert("ページが非アクティブになりました");
         }
       });
     </script>
