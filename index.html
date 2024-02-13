@@ -99,6 +99,14 @@
       } else {
         window.location.href = `${fmURL}`;      
       }
+
+      document.addEventListener("visibilitychange", function() {
+        if (document.visibilityState === "visible") {
+        console.log("ページがアクティブになりました");
+        } else {
+          console.log("ページが非アクティブになりました");
+        }
+      });
     </script>
   </body>
 </html>
