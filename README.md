@@ -20,8 +20,8 @@ https://sdw-inc.github.io/open-filemaker-url-scheme/
 | ```address``` | FileMakerのソリューションがホスティングされている、サーバーのアドレスを指定してください。 | ◯ | ```-``` | fmsServer.com など スタンドアローンファイルの場合は ```~``` |
 | ```filename``` | FileMakerのソリューション名を指定してください。 | ◯ | ```-``` | RECORERU.fmp12 |
 | ```title``` | ホーム画面に生成されるタイトルが指定できます。 | × | 未設定の場合は、```fileName``` と同じ値 | fmp19、fmp20、fmp |
-| ```iconFileName``` | ```FullIconPath``` が設定済みの場合は、```FullIconPath```が優先されます。ホーム画面に生成されるアイコン名を指定できます。 ```https://systemdesignworks.co.jp/assets/imgs/ipad/``` の中にある画像に限り指定できます。 | × | 未設定の場合は、```https://systemdesignworks.co.jp/assets/imgs/ipad/filemaker-icon.png``` がセットされます。 | ```filemaker-icon.png``` |
-| ```FullIconPath``` | 。ホーム画面に生成されるアイコンをフルパスファイルパスを指定できます。 | × | ```-``` | https://recoreru.com/app/imgs/logo.jpg |
+| ```iconFileName``` | ```fullIconFilePath``` が設定済みの場合は、```fullIconFilePath```が優先されます。ホーム画面に生成されるアイコン名を指定できます。 ```https://systemdesignworks.co.jp/assets/imgs/ipad/``` の中にある画像に限り指定できます。 | × | 未設定の場合は、```https://systemdesignworks.co.jp/assets/imgs/ipad/filemaker-icon.png``` がセットされます。 | ```filemaker-icon.png``` |
+| ```fullIconFilePath``` | 。ホーム画面に生成されるアイコンをフルパスファイルパスを指定できます。 | × | ```-``` | https://recoreru.com/app/imgs/logo.jpg |
 
 ---
 
@@ -34,5 +34,5 @@ https://sdw-inc.github.io/open-filemaker-url-scheme/?scheme=fmp20&address=fmServ
 
 スタンドアローンの```Sample.fmp12```のリンク
 ```
-https://sdw-inc.github.io/open-filemaker-url-scheme/?scheme=fmp20&address=~&filename=Sample.fmp12&title=Sample&FullIconPath=https://cdn-icons-png.flaticon.com/512/9908/9908191.png
+https://sdw-inc.github.io/open-filemaker-url-scheme/?scheme=fmp20&address=~&filename=Sample.fmp12&title=Sample&fullIconFilePath=https://cdn-icons-png.flaticon.com/512/9908/9908191.png
 ```
