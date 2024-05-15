@@ -76,7 +76,7 @@
       
       let url = new URL(window.location.href);
       let params = url.searchParams;
-      setAppleTouchIcon(params.get("fullIconFilePath"), params.get("iconFileName"));
+      setAppleTouchIcon(params.get("iconFileName"), params.get("fullIconFilePath"));
       const fmURL = `${params.get("scheme")}://${params.get("address")}/${params.get("filename")}`;
 
       const newTitle = params.get("title") ? params.get("title") : params.get("filename")
