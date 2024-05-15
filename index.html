@@ -56,7 +56,7 @@
         var baseUrl = "https://systemdesignworks.co.jp/assets/imgs/ipad/";
   
         //パラメータ空なら削除
-        if(!fileName || !fullFilePath) {
+        if(!fileName && !fullFilePath) {
           return null;
         }
         
