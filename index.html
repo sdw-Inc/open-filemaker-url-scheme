@@ -51,12 +51,12 @@
         return false;
       }
       // apple-touch-iconの設定
-      function setAppleTouchIcon(fileName) {
+      function setAppleTouchIcon(fileName, fullFilePath) {
         var link = document.querySelector("link[rel='apple-touch-icon']");
         var baseUrl = "https://systemdesignworks.co.jp/assets/imgs/ipad/";
   
         //パラメータ空なら削除
-        if(!fileName) {
+        if(!fileName || !fullFilePath) {
           return null;
         }
         
@@ -68,7 +68,7 @@
         // 新しいlink要素を作成して属性を設定
         var newLink = document.createElement("link");
         newLink.rel = "apple-touch-icon";
-        newLink.href = baseUrl + fileName;
+        newLink.href = fullFilePath ? fullFilePath : baseUrl + fileName; //fullpath優先
       
         // ヘッド要素に追加
         document.head.appendChild(newLink);
@@ -76,10 +76,11 @@
       
       let url = new URL(window.location.href);
       let params = url.searchParams;
-      setAppleTouchIcon(params.get("iconFileName"));
+      setAppleTouchIcon(params.get("fullIconFilePath"), params.get("iconFileName"));
       const fmURL = `${params.get("scheme")}://${params.get("address")}/${params.get("filename")}`;
-  
-      document.querySelector('title').textContent = params.get("title");
+
+      const newTitle = params.get("title") ? params.get("title") : params.get("filename")
+      document.querySelector('title').textContent = newTitle;
 
       if(params.get("renderFlg") == 1){
         var btn = document.createElement('a');
