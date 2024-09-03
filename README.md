@@ -20,7 +20,7 @@ https://sdw-inc.github.io/open-filemaker-url-scheme/
 | ```address``` | FileMakerのソリューションがホスティングされている、サーバーのアドレスを指定してください。 | ◯ | ```-``` | fmsServer.com など スタンドアローンファイルの場合は ```~``` |
 | ```filename``` | FileMakerのソリューション名を指定してください。 | ◯ | ```-``` | RECORERU.fmp12 |
 | ```title``` | ホーム画面に生成されるタイトルが指定できます。 | × | 未設定の場合は、```fileName``` と同じ値 | RECORERU など |
-| ```iconFileName``` | ```fullIconFilePath``` が設定済みの場合は、```fullIconFilePath```が優先されます。ホーム画面に生成されるアイコン名を指定できます。 ```https://systemdesignworks.co.jp/assets/imgs/ipad/``` の中にある画像に限り指定できます。 | × | 未設定の場合は、```https://systemdesignworks.co.jp/assets/imgs/ipad/filemaker-icon.png``` がセットされます。 | ```filemaker-icon.png``` |
+| ```iconFileName``` | ```fullIconFilePath``` が設定済みの場合は、```fullIconFilePath```が優先されます。ホーム画面に生成されるアイコン名を指定できます。 ```images/``` の中にある画像に限り指定できます。 | × | 未設定の場合は、```images/filemaker-icon.png``` がセットされます。 | ```filemaker-icon.png``` |
 | ```fullIconFilePath``` | ホーム画面に生成されるアイコンをフルパスファイルパスを指定できます。 | × | ```-``` | https://recoreru.com/app/imgs/logo.jpg |
 
 ---
